@@ -2,15 +2,14 @@ package adaptadores.secundarios;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicInteger;
+
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-import model.Cancion;
-import model.*;
+import model.musica.Cancion;
+import model.musica.Playlist;
 import model.usuarios.Usuario;
 import model.usuarios.UsuarioBasico;
 import model.usuarios.UsuarioPremiun;
@@ -19,13 +18,11 @@ public class manipuladorJSON {
 
 
 
-    private static JSONArray playlists = new JSONArray();
+    private static JSONObject playlists = new JSONObject();
     private static JSONObject mainJSON = new JSONObject();
 
-    private static JSONArray usuarios = new JSONArray();
+    private static JSONObject usuarios = new JSONObject();
 
-    private static ArrayList<Playlist> arrayPlaylists = new ArrayList<Playlist>();
-    private static ArrayList<Usuario> arrayUsuarios = new ArrayList<Usuario>();
 
 
     public static JSONObject agregarCancion(Cancion cancion){
@@ -37,7 +34,7 @@ public class manipuladorJSON {
 
         JSONObject objCancion = new JSONObject();
         objCancion.put(cancion.getNombre(), cancionDATA);
-        
+
         return objCancion;
     }
 
@@ -49,22 +46,18 @@ public class manipuladorJSON {
             JSONObject objCancion = agregarCancion(cancion);
             playlist.add(objCancion);
         }
-
-        estructura.put(pl.getId(), playlist);
-        playlists.add(estructura);
+        
+        playlists.put(pl.getId(), playlist);
         escribirJSON(mainJSON);
     }
 
-    /* public static void addSongToPlaylist(Playlist playlist, Cancion cancion){
-        
-    } */
 
     public static JSONObject agregarUsuario(Usuario usuario){
         JSONObject userData = new JSONObject();
         userData.put("ID", usuario.getId());
         userData.put("Username", usuario.getNombreUsuario());
         userData.put("Pass", usuario.getPass());
-        userData.put("Type: ", usuario.getTipoUsuario().getClass().getName());
+        userData.put("Type", usuario.getTipoUsuario().getClass().getName());
         userData.put("Cant. Playlists", usuario.getContenedorPlaylist().size());
 
         return userData;
@@ -74,8 +67,7 @@ public class manipuladorJSON {
         JSONObject estructura = new JSONObject();
         JSONObject objUser = agregarUsuario(user);
         
-        estructura.put(user.getId(), objUser);
-        usuarios.add(estructura);
+        usuarios.put(user.getId(), objUser);
         escribirJSON(mainJSON);
     }
 
@@ -97,41 +89,34 @@ public class manipuladorJSON {
         try(FileReader file = new FileReader("Reproductor/src/adaptadores/BD.json")){
             Object obj = parser.parse(file);
             JSONObject json = (JSONObject) obj;
-            arrayPlaylists = (JSONArray) json.get("Playlists");
-            arrayUsuarios = (JSONArray) json.get("Usuarios");
+            playlists = (JSONObject) json.get("Playlists");
+            usuarios =  (JSONObject) json.get("Usuarios");
 
-            for(Object object : arrayPlaylists){
-                JSONObject playlist = (JSONObject) object;
+            for(int i = 0; i < playlists.size(); i++){
+                JSONObject playlist = (JSONObject) usuarios.get(i);
                 Playlist actual = new Playlist((String) playlist.get("titulo"));
-                System.out.println(actual);
             }
+            int count = 1;
 
-            for(Object object: arrayUsuarios){
-                JSONObject user = (JSONObject) object;
-                String userType = (String) user.get("tipoUsuario");
+            for (int i = 0; i < usuarios.size(); i++) {
+
+                JSONObject user =(JSONObject) usuarios.get(count);
+                String userType = (String) user.get("Type");
                 if(userType.contains("UsuarioBasico")){
                     Usuario temp = new Usuario((String) user.get("Username"), (String) user.get("Pass"), new UsuarioBasico());
                     System.out.println(temp);
                 } else {
                     Usuario temp = new Usuario((String) user.get("Username"), (String) user.get("Pass"), new UsuarioPremiun());
-                    System.out.println(temp);
-                }
+                }   
+                count++;
             }
         }catch(Exception e){
             e.printStackTrace();
         }
     }
-
-    public static ArrayList<Playlist> getArrayPlaylists() {
-        return arrayPlaylists;
-    }
-
-    public static ArrayList<Usuario> getArrayUsuarios() {
-        return arrayUsuarios;
-    }
-
-
 }
+
+
 
     
 

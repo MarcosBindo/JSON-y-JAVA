@@ -1,4 +1,4 @@
-package model;
+package model.musica;
 public class Cancion {
     private String nombre, artista, album;
     private double duracion;

@@ -1,6 +1,6 @@
-package model.usuarios;
-import model.Cancion;
-import model.Playlist;
+package interfaces;
+import model.musica.Cancion;
+import model.musica.Playlist;
 
 public interface TipoUsuario {
 

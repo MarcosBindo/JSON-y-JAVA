@@ -1,6 +1,7 @@
 package model.usuarios;
-import model.Cancion;
-import model.Playlist;
+import interfaces.TipoUsuario;
+import model.musica.Cancion;
+import model.musica.Playlist;
 
 public class UsuarioPremiun implements TipoUsuario{
 
@@ -17,7 +18,7 @@ public class UsuarioPremiun implements TipoUsuario{
 
     @Override
     public Playlist crearPlaylist(String titulo){
-        return Usuario.addPlaylist(new Playlist(titulo)); 
+        return new Playlist(titulo); 
     }
 
     @Override

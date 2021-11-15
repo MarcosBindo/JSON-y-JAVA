@@ -1,6 +1,8 @@
 package model;
 import adaptadores.secundarios.manipuladorJSON;
-import model.usuarios.TipoUsuario;
+import interfaces.TipoUsuario;
+import model.musica.Cancion;
+import model.musica.Playlist;
 import model.usuarios.Usuario;
 import model.usuarios.UsuarioBasico;
 import model.usuarios.UsuarioPremiun;
@@ -60,7 +62,6 @@ public class App {
         manipuladorJSON.addUser(user5);
         manipuladorJSON.addUser(user6);
         
-
 
         manipuladorJSON.leerJSON();
 

@@ -1,6 +1,7 @@
 package model.usuarios;
-import model.Cancion;
-import model.Playlist;
+import interfaces.TipoUsuario;
+import model.musica.Cancion;
+import model.musica.Playlist;
 
 public class UsuarioBasico implements TipoUsuario{
 
@@ -27,8 +28,7 @@ public class UsuarioBasico implements TipoUsuario{
 
     @Override
     public Playlist crearPlaylist(String titulo) {
-        System.out.println("Pasate a premiun para crear tus propias playlists");
-        return null;
+        return new Playlist(titulo); 
     }
 
 }

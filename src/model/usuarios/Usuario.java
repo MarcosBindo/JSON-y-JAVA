@@ -2,8 +2,9 @@ package model.usuarios;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import model.Cancion;
-import model.Playlist;
+import interfaces.TipoUsuario;
+import model.musica.Cancion;
+import model.musica.Playlist;
 
 public class Usuario{
 
@@ -84,9 +85,5 @@ public class Usuario{
         Id = id;
     }
    
-   public static Playlist addPlaylist(Playlist playlist){
-        contenedorPlaylist.add(playlist);
-        return playlist;
-    }   
     
 }
