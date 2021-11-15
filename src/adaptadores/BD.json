@@ -1,0 +1,128 @@
+{
+    "Usuarios": [
+        {
+            "1": {
+                "Pass": "1234567",
+                "Type: ": "model.usuarios.UsuarioPremiun",
+                "Username": "MarcosBindo",
+                "ID": 1,
+                "Cant. Playlists": 5
+            }
+        },
+        {
+            "2": {
+                "Pass": "laidjada",
+                "Type: ": "model.usuarios.UsuarioPremiun",
+                "Username": "TomasAusino",
+                "ID": 2,
+                "Cant. Playlists": 5
+            }
+        },
+        {
+            "3": {
+                "Pass": "mwfsyscp",
+                "Type: ": "model.usuarios.UsuarioBasico",
+                "Username": "NicolasEscude",
+                "ID": 3,
+                "Cant. Playlists": 5
+            }
+        },
+        {
+            "4": {
+                "Pass": "iaymdkw",
+                "Type: ": "model.usuarios.UsuarioPremiun",
+                "Username": "NicolesLiloia",
+                "ID": 4,
+                "Cant. Playlists": 5
+            }
+        },
+        {
+            "5": {
+                "Pass": "10972424dadrg",
+                "Type: ": "model.usuarios.UsuarioPremiun",
+                "Username": "PabloPerez",
+                "ID": 5,
+                "Cant. Playlists": 5
+            }
+        },
+        {
+            "6": {
+                "Pass": "FE92748sds",
+                "Type: ": "model.usuarios.UsuarioBasico",
+                "Username": "ChristianBravo",
+                "ID": 6,
+                "Cant. Playlists": 5
+            }
+        }
+    ],
+    "Playlists": [
+        {
+            "2": [
+                {
+                    "ORO y PLATINO": {
+                        "Nombre": "ORO y PLATINO",
+                        "Duracion": 3.4,
+                        "Album": "---",
+                        "Artista": "YSY-A"
+                    }
+                },
+                {
+                    "No friends in the Industry": {
+                        "Nombre": "No friends in the Industry",
+                        "Duracion": 4,
+                        "Album": "Certified Lover Boy",
+                        "Artista": "Drake"
+                    }
+                },
+                {
+                    "Fair Trade": {
+                        "Nombre": "Fair Trade",
+                        "Duracion": 3.5,
+                        "Album": "Certified Lover Boy",
+                        "Artista": "Drake"
+                    }
+                }
+            ]
+        },
+        {
+            "4": [
+                {
+                    "ORO y PLATINO": {
+                        "Nombre": "ORO y PLATINO",
+                        "Duracion": 3.4,
+                        "Album": "---",
+                        "Artista": "YSY-A"
+                    }
+                },
+                {
+                    "No friends in the Industry": {
+                        "Nombre": "No friends in the Industry",
+                        "Duracion": 4,
+                        "Album": "Certified Lover Boy",
+                        "Artista": "Drake"
+                    }
+                },
+                {
+                    "Fair Trade": {
+                        "Nombre": "Fair Trade",
+                        "Duracion": 3.5,
+                        "Album": "Certified Lover Boy",
+                        "Artista": "Drake"
+                    }
+                }
+            ]
+        },
+        {
+            "6": [
+                {
+                    "ORO y PLATINO": {
+                        "Nombre": "ORO y PLATINO",
+                        "Duracion": 3.4,
+                        "Album": "---",
+                        "Artista": "YSY-A"
+                    }
+                }
+            ]
+        }
+    ]
+}
